@@ -47,6 +47,8 @@
 defined('IN_ECJIA') or exit('No permission resources.');
 return array(
     'ext_code'      => 'mp_kefu',
+    
+    'ext_icon'      => 'images/icon_kefu.png',
 			
 	'forms' => array(
 		array('name' => 'kefu_status',       'type' => 'radiobox',    'value' => ''),
