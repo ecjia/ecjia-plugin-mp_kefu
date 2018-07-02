@@ -99,7 +99,12 @@ class mp_kefu extends PlatformAbstract
         return '';
     }
 	
-    public function event_reply() {
+    /**
+     * 事件回复
+     * {@inheritDoc}
+     * @see \Ecjia\App\Platform\Plugin\PlatformAbstract::eventReply()
+     */
+    public function eventReply() {
     	$wechatuser_db = RC_Loader::load_app_model('wechat_user_model','wechat');
     	$wechat_custom_message_db = RC_Loader::load_app_model('wechat_custom_message_model', 'wechat');
     	$platform_config_db = RC_Loader::load_app_model('platform_config_model','platform');
