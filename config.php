@@ -49,6 +49,10 @@ return array(
     'ext_code'      => 'mp_kefu',
     
     'ext_icon'      => 'images/icon_kefu.png',
+
+    'support_platform' => 'wechat', //仅支持微信公众平台
+
+    'support_platform_type' => ['service'], //仅支持微信服务号
 			
 	'forms' => array(
 		array('name' => 'kefu_status',       'type' => 'radiobox',    'value' => ''),
