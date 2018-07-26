@@ -84,5 +84,22 @@ Ecjia_PluginManager::extend('mp_kefu', function() {
 
 RC_Plugin::register_activation_hook(__FILE__, array('plugin_mp_kefu', 'install'));
 RC_Plugin::register_deactivation_hook(__FILE__, array('plugin_mp_kefu', 'uninstall'));
-// RC_Hook::add_filter('platform_factory_adapter_instance', array( 'plugin_mp_kefu', 'adapter_instance' ), 10, 2);
+
+//修改插件配置表单select选择
+RC_Hook::add_filter('plugin_form_mp_kefu', function($data) {
+
+    if (! $data[1]['range']) {
+        $wechat_id = ecjia_platform::$controller->getPlatformAccount()->getAccountID();
+        $result = \Ecjia\App\Wechat\Models\WechatCustomerModel::where('wechat_id', $wechat_id)->where('status', 1)->get();
+
+        $newdResult = $result->map(function($item) {
+            return [$item->kf_account => $item->kf_nick];
+        })->collapse()->toArray();
+
+        $data[1]['range'] = $newdResult;
+    }
+
+    return $data;
+});
+
 // end

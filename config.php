@@ -56,7 +56,7 @@ return array(
 			
 	'forms' => array(
 		array('name' => 'kefu_status',       'type' => 'radiobox',    'value' => ''),
-		array('name' => 'kefu_value',        'type' => 'text',        'value' => ''),
+		array('name' => 'kefu_value',        'type' => 'select',      'value' => ''),
 	),
 );
 
