@@ -53,8 +53,10 @@ return array(
     'support_platform' => 'wechat', //仅支持微信公众平台
 
     'support_platform_type' => ['service'], //仅支持微信服务号
-			
-	'forms' => array(
+
+    'support_type'  => Ecjia\App\Platform\Plugin\PlatformAbstract::TypeAdmin | Ecjia\App\Platform\Plugin\PlatformAbstract::TypeMerchant,
+
+    'forms' => array(
 		array('name' => 'kefu_status',       'type' => 'radiobox',    'value' => ''),
 		array('name' => 'kefu_value',        'type' => 'select',      'value' => ''),
 	),
