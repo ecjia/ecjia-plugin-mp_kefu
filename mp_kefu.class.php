@@ -124,8 +124,7 @@ class mp_kefu extends PlatformAbstract
             'Title'         => '欢迎进入客服系统',
             'Description'   => '',
             'Url'           => '',
-            'PicUrl'        => '',
-//            'PicUrl'      => RC_Plugin::plugin_dir_url(__FILE__) . '/images/wechat_thumb_pic.jpg',
+            'PicUrl'      => RC_Plugin::plugin_dir_url(__FILE__) . '/images/wechat_banner_pic.png',
         ];
         with(new Ecjia\App\Wechat\Sends\SendCustomMessage($wechat, $wechat_id, $openid))->sendNewsMessage($articles['Title'], $articles['Description'], $articles['Url'], $articles['PicUrl']);
 
