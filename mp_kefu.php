@@ -69,12 +69,6 @@ class plugin_mp_kefu {
         return RC_Api::api('platform', 'plugin_uninstall', $param);
     }
 
-
-    public static function adapter_instance($instance, $config) {
-        require_once RC_Plugin::plugin_dir_path(__FILE__) . 'mp_kefu.class.php';
-        $wechat = new mp_kefu($config);
-        return $wechat;
-    }
 }
 
 Ecjia_PluginManager::extend('mp_kefu', function() {
