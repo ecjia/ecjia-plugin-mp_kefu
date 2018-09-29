@@ -113,6 +113,16 @@ class mp_kefu extends PlatformAbstract
 
         $kefu_value = $this->getConfig('kefu_value');
 
+        if ($this->getAccount()->getPlatform() == 'weapp') {
+            return $this->handleWeappEvent($kefu_value);
+        } else {
+            return $this->handleWechatEvent($kefu_value);
+        }
+    }
+
+
+    protected function handleWechatEvent($kefu_value)
+    {
         $wechatUUID = new \Ecjia\App\Wechat\WechatUUID();
 
         $wechat_id = $wechatUUID->getWechatID();
@@ -127,6 +137,31 @@ class mp_kefu extends PlatformAbstract
             'PicUrl'      => RC_Plugin::plugin_dir_url(__FILE__) . '/images/wechat_banner_pic.png',
         ];
         with(new Ecjia\App\Wechat\Sends\SendCustomMessage($wechat, $wechat_id, $openid))->sendNewsMessage($articles['Title'], $articles['Description'], $articles['Url'], $articles['PicUrl']);
+
+        $transfer = new \Royalcms\Component\WeChat\Message\Transfer();
+
+        if ($kefu_value) {
+            $transfer->account($kefu_value);// 或者 $transfer->to($account);
+        }
+
+        return $transfer;
+    }
+
+    protected function handleWeappEvent($kefu_value)
+    {
+
+        $weappUUID = new \Ecjia\App\Weapp\WeappUUID();
+        $weapp_id = $weappUUID->getWeappID();
+        $wechat = $weappUUID->getWechatInstance();
+        $openid = $this->getMessage()->get('FromUserName');
+
+        $articles = [
+            'Title'         => '欢迎进入客服系统',
+            'Description'   => '',
+            'Url'           => '',
+            'PicUrl'      => RC_Plugin::plugin_dir_url(__FILE__) . '/images/wechat_banner_pic.png',
+        ];
+        with(new \Ecjia\App\Weapp\Sends\SendCustomMessage($wechat, $weapp_id, $openid))->sendTextMessage($articles['Title']);
 
         $transfer = new \Royalcms\Component\WeChat\Message\Transfer();
 
