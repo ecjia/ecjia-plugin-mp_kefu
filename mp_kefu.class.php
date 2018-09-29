@@ -167,7 +167,11 @@ class mp_kefu extends PlatformAbstract
 
         if ($kefu_value) {
             $transfer->account($kefu_value);// 或者 $transfer->to($account);
+
         }
+
+        $customer_session = new \Ecjia\App\Weapp\Repositories\WeappCustomerSessionRepository($weapp_id);
+        $customer_session->createWaitSession($openid);
 
         return $transfer;
     }
