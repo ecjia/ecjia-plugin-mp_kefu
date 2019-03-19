@@ -131,7 +131,7 @@ class mp_kefu extends PlatformAbstract
 
 
         $articles = [
-            'Title'         => '欢迎进入客服系统',
+            'Title'         => __('欢迎进入客服系统', 'mp_kefu'),
             'Description'   => '',
             'Url'           => '',
             'PicUrl'      => RC_Plugin::plugin_dir_url(__FILE__) . '/images/wechat_banner_pic.png',
@@ -156,7 +156,7 @@ class mp_kefu extends PlatformAbstract
         $openid = $this->getMessage()->get('FromUserName');
 
         $articles = [
-            'Title'         => '欢迎进入客服系统',
+            'Title'         => __('欢迎进入客服系统', 'mp_kefu'),
             'Description'   => '',
             'Url'           => '',
             'PicUrl'      => RC_Plugin::plugin_dir_url(__FILE__) . '/images/wechat_banner_pic.png',

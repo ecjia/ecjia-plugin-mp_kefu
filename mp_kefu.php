@@ -90,7 +90,7 @@ RC_Hook::add_filter('plugin_form_mp_kefu', function($data) {
             return [$item->kf_account => $item->kf_nick];
         })->collapse()->toArray();
 
-        $newdResult = ['0' => '默认自动转接'] + $newdResult;
+        $newdResult = ['0' => __('默认自动转接', 'mp_kefu')] + $newdResult;
         $data[1]['range'] = $newdResult;
     }
 
