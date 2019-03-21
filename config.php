@@ -64,8 +64,8 @@ return array(
 	),
 
     'dynamic_option' => array(
-        'kefu_status' => '状态：',
-        'kefu_status_range' => array('关闭', '开启'),
+        'kefu_status' => __('状态：', 'mp_kefu'),
+        'kefu_status_range' => array(__('关闭', 'mp_kefu'), __('开启', 'mp_kefu')),
         'kefu_value' => '转到客服：'
     ),
 );
