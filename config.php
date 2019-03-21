@@ -62,6 +62,12 @@ return array(
 		array('name' => 'kefu_status',       'type' => 'radiobox',    'value' => ''),
 		array('name' => 'kefu_value',        'type' => 'select',      'value' => ''),
 	),
+
+    'dynamic_option' => array(
+        'kefu_status' => '状态：',
+        'kefu_status_range' => array('关闭', '开启'),
+        'kefu_value' => '转到客服：'
+    ),
 );
 
 // end

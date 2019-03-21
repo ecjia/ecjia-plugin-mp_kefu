@@ -73,6 +73,7 @@ class plugin_mp_kefu {
 }
 
 Ecjia_PluginManager::extend('mp_kefu', function() {
+    RC_Locale::loadPluginTextdomain('mp_kefu');
     require_once RC_Plugin::plugin_dir_path(__FILE__) . 'mp_kefu.class.php';
     return new mp_kefu();
 });
